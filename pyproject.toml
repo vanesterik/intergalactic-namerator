@@ -1,0 +1,49 @@
+[project]
+name = "intergalactic-namerator"
+version = "0.1.1"
+description = "Generate names based on Rick and Morty characters."
+authors = [{ name = "Koen van Esterik", email = "kd.vanesterik@student.han.nl" }]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bs4>=0.0.2",
+    "fastapi[standard]>=0.121.2",
+    "loguru>=0.7.3",
+    "pydantic>=2.12.4",
+    "requests>=2.32.5",
+    "ruff>=0.14.4",
+    "tokenizers>=0.22.1",
+    "torch>=2.9.1",
+    "types-requests>=2.32.4.20250913",
+]
+
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.workspace]
+members = [
+    "services/backend",
+    "services/frontend",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/intergalactic_namerator"]
+
+
+[tool.mypy]
+ignore_missing_imports = true
