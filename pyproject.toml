@@ -1,6 +1,6 @@
 [project]
 name = "intergalactic-namerator"
-version = "0.1.1"
+version = "0.1.2"
 description = "Generate names based on Rick and Morty characters."
 authors = [{ name = "Koen van Esterik", email = "kd.vanesterik@student.han.nl" }]
 readme = "README.md"
