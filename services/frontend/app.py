@@ -88,7 +88,7 @@ col4.button(
 
 if "names" in st.session_state:
     st.space()
-    st.session_state["selected_names"] = st.pills(
+    st.pills(
         "Names",
         options=st.session_state["names"],
         label_visibility="collapsed",
