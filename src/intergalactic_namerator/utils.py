@@ -2,7 +2,7 @@ import tomllib
 from pathlib import Path
 from typing import List
 
-import requests
+import requests  # type: ignore
 import tokenizers as tk
 import torch
 from bs4 import BeautifulSoup

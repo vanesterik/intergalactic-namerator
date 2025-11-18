@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN uv add -r requirements.txt
+RUN uv pip install --system --no-cache -r requirements.txt
 
-CMD ["python", "main.py"]
+COPY app.py .
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "443"]

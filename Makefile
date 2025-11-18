@@ -10,6 +10,7 @@ NC     := \033[0m # No Color
 # Default target
 .DEFAULT_GOAL := help
 
+
 help:
 	@echo "$(YELLOW)Available targets:$(NC)"
 	@echo "  $(GREEN)dist$(NC)        - Build distribution"
@@ -29,8 +30,11 @@ artifacts/*.pth:
 
 run: dist/*.whl artifacts/*.pth
 	@echo "$(YELLOW)Starting services...$(NC)"
-#	docker compose up --build
+	docker compose up --build
 
-clean: 
+
+clean:
 	@echo "$(YELLOW)Cleaning up...$(NC)"
 	rm -rf dist/*
+	find artifacts -type f ! -name '.gitkeep' -delete
+	docker compose down
