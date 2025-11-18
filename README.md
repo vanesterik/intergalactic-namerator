@@ -1,4 +1,4 @@
-![INTERGALACTIC-NAMERATOR](https://github.com/vanesterik/intergalactic-namerator/blob/main/references/rick-and-morty.png)
+![INTERGALACTIC-NAMERATOR](https://raw.githubusercontent.com/vanesterik/intergalactic-namerator/refs/heads/main/references/rick-and-morty.png)
 
 # INTERGALACTIC-NAMERATOR
 
