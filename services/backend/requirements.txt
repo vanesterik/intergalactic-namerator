@@ -2,4 +2,5 @@ fastapi[standard]
 intergalactic-namerator
 loguru
 tokenizers
+torch
 uvicorn

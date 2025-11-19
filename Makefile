@@ -35,7 +35,7 @@ run: dist/*.whl artifacts/*.pth
 			docker compose up --build --detach; \
 		else \
 			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
-			docker-compose up --build --detach; \
+			sudo docker-compose up --build --detach; \
 		fi
 
 
@@ -46,7 +46,7 @@ stop:
 			docker compose stop; \
 		else \
 			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
-			docker-compose stop; \
+			sudo docker-compose stop; \
 		fi
 
 
@@ -59,5 +59,5 @@ clean: stop
 			docker compose down; \
 		else \
 			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
-			docker-compose down; \
+			sudo docker-compose down; \
 		fi
