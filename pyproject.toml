@@ -1,6 +1,6 @@
 [project]
 name = "intergalactic-namerator"
-version = "0.1.3"
+version = "0.1.4"
 description = "Generate names based on Rick and Morty characters."
 authors = [
     { name = "Koen van Esterik", email = "kd.vanesterik@student.han.nl" },
@@ -13,7 +13,6 @@ dependencies = [
     "pydantic>=2.12.4",
     "requests>=2.32.5",
     "tokenizers>=0.22.1",
-    "torch>=2.9.1",
 ]
 
 
@@ -22,14 +21,13 @@ backend = [
     "fastapi[standard]>=0.121.2",
     "uvicorn>=0.38.0",
 ]
-dev = ["ruff>=0.14.5"]
+dev = [
+    "ruff>=0.14.5",
+    "torch>=2.9.1",
+]
 frontend = [
     "streamlit>=1.51.0",
 ]
-
-
-[tool.uv.sources]
-torch = [{ index = "pytorch-cpu" }]
 
 
 [[tool.uv.index]]

@@ -120,6 +120,11 @@ async def generate(payload: Payload):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
+
 @app.get("/")
 async def read_index():
     return {"message": "Welcome to the Intergalactic Namerator API!"}

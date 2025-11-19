@@ -54,6 +54,7 @@ clean: stop
 	@echo "$(YELLOW)Cleaning up...$(NC)"
 	rm -rf dist/*
 	find artifacts -type f ! -name '.gitkeep' -delete
+	find assets -type f ! -name '.gitkeep' -delete
 	@if [ "$$(uname)" = "Darwin" ]; then \
 			echo "$(YELLOW)Detected macOS, using 'docker compose'...$(NC)"; \
 			docker compose down; \
