@@ -25,10 +25,4 @@ services:
       - "80:80"
     depends_on:
       - backend
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:80/health && exit 0 || exit 1"]
-      interval: 10s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
     restart: unless-stopped
