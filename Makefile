@@ -30,11 +30,34 @@ artifacts/*.pth:
 
 run: dist/*.whl artifacts/*.pth
 	@echo "$(YELLOW)Starting services...$(NC)"
-	docker compose up --build
+	@if [ "$$(uname)" = "Darwin" ]; then \
+			echo "$(YELLOW)Detected macOS, using 'docker compose'...$(NC)"; \
+			docker compose up --build --detach; \
+		else \
+			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
+			docker-compose up --build --detach; \
+		fi
 
 
-clean:
+stop:
+	@echo "$(YELLOW)Stopping services...$(NC)"
+	@if [ "$$(uname)" = "Darwin" ]; then \
+			echo "$(YELLOW)Detected macOS, using 'docker compose'...$(NC)"; \
+			docker compose stop; \
+		else \
+			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
+			docker-compose stop; \
+		fi
+
+
+clean: stop
 	@echo "$(YELLOW)Cleaning up...$(NC)"
 	rm -rf dist/*
 	find artifacts -type f ! -name '.gitkeep' -delete
-	docker compose down
+	@if [ "$$(uname)" = "Darwin" ]; then \
+			echo "$(YELLOW)Detected macOS, using 'docker compose'...$(NC)"; \
+			docker compose down; \
+		else \
+			echo "$(YELLOW)Detected Linux, using 'docker-compose'...$(NC)"; \
+			docker-compose down; \
+		fi
